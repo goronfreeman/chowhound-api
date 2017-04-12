@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :businesses
-  resources :trucks
+  scope module: :v1, constraints: ApiVersion.new('v1', true) do
+    resources :businesses
+    resources :trucks
+  end
 end
