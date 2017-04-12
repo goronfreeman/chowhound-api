@@ -3,7 +3,7 @@ module V1
     before_action :set_truck, only: [:show, :update, :destroy]
 
     def index
-      @trucks = Truck.all
+      @trucks = Truck.all.paginate(page: params[:page], per_page: 20)
       json_response(@trucks)
     end
 
